@@ -43,11 +43,11 @@ const renderItem = ({item}) => <Foods name={item.name} price={`$` + item.price} 
 const FlatListEx = () => {
   return (
     <View style={styles.listContainer}>
-      <FlatList 
-        data={listItmes} 
+      <FlatList
+        data={listItmes}
         // keyExtractor={(item, index) => item + index}
         keyExtractor={(item) => item.id}
-        renderItem={renderItem} 
+        renderItem={renderItem}
         ItemSeparatorComponent={Separator}
         ListHeaderComponent={menuHeader}
         ListFooterComponent={menuFooter}
@@ -98,5 +98,5 @@ const styles = StyleSheet.create({
     borderColor: '#666',
     paddingTop: 1
   }
-  
+
 })

@@ -1,6 +1,6 @@
-import { 
-  Text, 
-  TextInput, 
+import {
+  Text,
+  TextInput,
   StyleSheet,
   KeyboardAvoidingView,
   ScrollView,
@@ -27,8 +27,8 @@ const LoginFormEx = () => {
       style={styles.textContainer}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <ScrollView 
-        horizontal={false} 
+      <ScrollView
+        horizontal={false}
         indicatorStyle={'#333'}
         keyboardDismissMode="on-drag"
       >
@@ -53,18 +53,18 @@ const LoginFormEx = () => {
           <Button
             color="blue"
             onPress={submitButtonAction}
-            title={userState ? 'Login' : 'Logout'} 
+            title={userState ? 'Login' : 'Logout'}
           />
         </ScrollView>)}
         {!userState && (<ScrollView>
           <Text style={{marginBottom: 20}}>
-            You are now logged in! 
+            You are now logged in!
             <Text style={{fontWeight: 'bold'}}> Welcome!</Text>
           </Text>
           <Button
             color="maroon"
             onPress={submitButtonAction}
-            title={userState ? 'Login' : 'Logout'} 
+            title={userState ? 'Login' : 'Logout'}
           />
         </ScrollView>)}
       </ScrollView>

@@ -1,8 +1,8 @@
 import {
-  ScrollView, 
-  TextInput, 
-  StyleSheet, 
-  KeyboardAvoidingView, 
+  ScrollView,
+  TextInput,
+  StyleSheet,
+  KeyboardAvoidingView,
   Platform,
   Alert,
   Text,
@@ -27,8 +27,8 @@ const [email, onchangeEmail] = useState('')
       style={styles.textContainer}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <ScrollView 
-        horizontal={false} 
+      <ScrollView
+        horizontal={false}
         indicatorStyle={'#333'}
         keyboardDismissMode="on-drag"
       >
@@ -65,7 +65,7 @@ const [email, onchangeEmail] = useState('')
           value={message}
           multiline={true}
         />
-        <Pressable 
+        <Pressable
           onPress={submitButtonAction}
           // onPressIn={}
           // onPressOut={}
