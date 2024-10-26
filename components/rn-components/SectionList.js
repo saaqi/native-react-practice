@@ -4,6 +4,7 @@ import {
   SectionList,
   View,
   Pressable,
+  useColorScheme
 } from 'react-native'
 import { useState } from 'react'
 
@@ -52,14 +53,28 @@ const menuItemsToDisplay = [
   },
 ];
 
-const menuHeader = () => <Text style={styles.menuHeader}>Our Menu</Text>
-const menuFooter = () => <Text style={styles.menuFooter}>All Rights Reserved 2024</Text>
+const menuHeader = () => <Text style={[
+  styles.menuHeader,
+  { color: useColorScheme() === 'dark' ? '#fefefe' : '#333' },
+]}>Our Menu</Text>
+const menuFooter = () => <Text style={[
+  styles.menuFooter,
+  { color: useColorScheme() === 'dark' ? '#fefefe' : '#333' },
+]}>All Rights Reserved 2024</Text>
 const Separator = () => <View style={styles.separator}></View>
-const Foods = ({name, price}) => {
+
+const Foods = ({ name, price }) => {
+  const colorScheme = useColorScheme();
   return (
     <View style={styles.listStyles}>
-      <Text style={styles.listItemName}>{name}</Text>
-      <Text style={styles.listItemPrice}>{price}</Text>
+      <Text style={[
+        styles.listItemName,
+        { color: colorScheme === 'dark' ? '#fefefe' : '#333' },
+      ]}>{name}</Text>
+      <Text style={[
+        styles.listItemPrice,
+        { color: colorScheme === 'dark' ? '#fefefe' : '#333' },
+      ]}>{price}</Text>
     </View>
   )
 }
