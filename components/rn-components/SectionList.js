@@ -87,7 +87,7 @@ const renderSectionHeader = ({ section: {title} }) => (
 const SectionListEx = () => {
 
   const [buttonStyle, setButtonStyle] = useState('submitButton');
-  const [menuState, setMenuState] = useState(true);
+  const [menuState, setMenuState] = useState(false);
 
   const submitButtonAction = () => {
     setMenuState(!menuState);
