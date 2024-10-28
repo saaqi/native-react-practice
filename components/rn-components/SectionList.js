@@ -9,82 +9,92 @@ import {
 import { useState } from 'react'
 
 
-const menuItemsToDisplay = [
-  {
-    title: 'Appetizers',
-    data: [
-      { name: 'Hummus', price: '$5.00' },
-      { name: 'Moutabal', price: '$5.00' },
-      { name: 'Falafel', price: '$7.50' },
-      { name: 'Marinated Olives', price: '$5.00' },
-      { name: 'Kofta', price: '$5.00' },
-      { name: 'Eggplant Salad', price: '$8.50' },
-    ].map((item, index) => ({ ...item, id: `appetizer-${index}` })),
-  },
-  {
-    title: 'Main Dishes',
-    data: [
-      { name: 'Lentil Burger', price: '$10.00' },
-      { name: 'Smoked Salmon', price: '$14.00' },
-      { name: 'Kofta Burger', price: '$11.00' },
-      { name: 'Turkish Kebab', price: '$15.50' },
-    ].map((item, index) => ({ ...item, id: `main-dished-${index}` })),
-  },
-  {
-    title: 'Sides',
-    data: [
-      { name: 'Fries', price: '$3.00', id: '11K' },
-      { name: 'Buttered Rice', price: '$3.00' },
-      { name: 'Bread Sticks', price: '$3.00' },
-      { name: 'Pita Pocket', price: '$3.00' },
-      { name: 'Lentil Soup', price: '$3.75' },
-      { name: 'Greek Salad', price: '$6.00' },
-      { name: 'Rice Pilaf', price: '$4.00' },
-    ].map((item, index) => ({ ...item, id: `sides-${index}` })),
-  },
-  {
-    title: 'Desserts',
-    data: [
-      { name: 'Baklava', price: '$3.00' },
-      { name: 'Tartufo', price: '$3.00' },
-      { name: 'Tiramisu', price: '$5.00' },
-      { name: 'Panna Cotta', price: '$5.00' },
-    ].map((item, index) => ({ ...item, id: `desserts-${index}` })),
-  },
-];
-
-const menuHeader = () => <Text style={[
-  styles.menuHeader,
-  { color: useColorScheme() === 'dark' ? '#fefefe' : '#333' },
-]}>Our Menu</Text>
-const menuFooter = () => <Text style={[
-  styles.menuFooter,
-  { color: useColorScheme() === 'dark' ? '#fefefe' : '#333' },
-]}>All Rights Reserved 2024</Text>
-const Separator = () => <View style={styles.separator}></View>
-
-const Foods = ({ name, price }) => {
-  const colorScheme = useColorScheme();
-  return (
-    <View style={styles.listStyles}>
-      <Text style={[
-        styles.listItemName,
-        { color: colorScheme === 'dark' ? '#fefefe' : '#333' },
-      ]}>{name}</Text>
-      <Text style={[
-        styles.listItemPrice,
-        { color: colorScheme === 'dark' ? '#fefefe' : '#333' },
-      ]}>{price}</Text>
-    </View>
-  )
-}
-const renderItem = ({item}) => <Foods name={item.name} price={item.price} />
-const renderSectionHeader = ({ section: {title} }) => (
-  <Text style={styles.sectionHeader}>{title}</Text>
-)
-
-
 const SectionListEx = () => {
+
+  const menuItemsToDisplay = [
+    {
+      title: 'Appetizers',
+      data: [
+        { name: 'Hummus', price: '$5.00' },
+        { name: 'Moutabal', price: '$5.00' },
+        { name: 'Falafel', price: '$7.50' },
+        { name: 'Marinated Olives', price: '$5.00' },
+        { name: 'Kofta', price: '$5.00' },
+        { name: 'Eggplant Salad', price: '$8.50' },
+      ].map((item, index) => ({ ...item, id: `appetizer-${index}` })),
+    },
+    {
+      title: 'Main Dishes',
+      data: [
+        { name: 'Lentil Burger', price: '$10.00' },
+        { name: 'Smoked Salmon', price: '$14.00' },
+        { name: 'Kofta Burger', price: '$11.00' },
+        { name: 'Turkish Kebab', price: '$15.50' },
+      ].map((item, index) => ({ ...item, id: `main-dished-${index}` })),
+    },
+    {
+      title: 'Sides',
+      data: [
+        { name: 'Fries', price: '$3.00', id: '11K' },
+        { name: 'Buttered Rice', price: '$3.00' },
+        { name: 'Bread Sticks', price: '$3.00' },
+        { name: 'Pita Pocket', price: '$3.00' },
+        { name: 'Lentil Soup', price: '$3.75' },
+        { name: 'Greek Salad', price: '$6.00' },
+        { name: 'Rice Pilaf', price: '$4.00' },
+      ].map((item, index) => ({ ...item, id: `sides-${index}` })),
+    },
+    {
+      title: 'Desserts',
+      data: [
+        { name: 'Baklava', price: '$3.00' },
+        { name: 'Tartufo', price: '$3.00' },
+        { name: 'Tiramisu', price: '$5.00' },
+        { name: 'Panna Cotta', price: '$5.00' },
+      ].map((item, index) => ({ ...item, id: `desserts-${index}` })),
+    },
+  ];
+
+  const isDark = useColorScheme() === 'dark';
+
+  const menuHeader = () => <Text style={[
+    styles.menuHeader,
+    { color: isDark ? '#fefefe' : '#333' },
+  ]}>Our Menu</Text>
+  const menuFooter = () => <Text style={[
+    styles.menuFooter,
+    { color: isDark ? '#fefefe' : '#333' },
+  ]}>All Rights Reserved 2024</Text>
+  const Separator = () => <View style={styles.separator}></View>
+
+  const Foods = ({ name, price }) => {
+    return (
+      <View style={styles.listStyles}>
+        <Text style={[
+          styles.listItemName,
+          { color: isDark ? '#fefefe' : '#333' },
+        ]}>{name}</Text>
+        <Text style={[
+          styles.listItemPrice,
+          { color: isDark ? '#fefefe' : '#333' },
+        ]}>{price}</Text>
+      </View>
+    )
+  }
+  const renderItem = ({ item }) => <Foods name={item.name} price={item.price} />
+  const renderSectionHeader = ({ section: { title } }) => (
+    <Text
+      style={[
+        styles.sectionHeader,
+        {
+          backgroundColor: isDark ? '#eee' : '#333',
+          color: isDark ? '#333' : '#fefefe'
+        }
+      ]}
+    >
+      {title}
+    </Text>
+  )
 
   const [buttonStyle, setButtonStyle] = useState('submitButton');
   const [menuState, setMenuState] = useState(false);
@@ -180,11 +190,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     textAlign: 'center',
-    backgroundColor: '#333',
     paddingVertical: 5,
     borderRadius:15,
     marginBottom: 10,
-    color: '#fefefe'
   },
 
   menuFooter: {

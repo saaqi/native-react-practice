@@ -1,9 +1,20 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, useColorScheme } from "react-native"
 
 function Header() {
+  const isDark = useColorScheme() === 'dark';
   return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.headerTitle}>
+    <View style={[
+      styles.headerContainer,
+      {
+        backgroundColor: isDark ? '#333' : '#eee',
+      }
+    ]}>
+      <Text style={[
+        styles.headerTitle,
+        {
+          color: isDark ? '#fefefe' : '#333'
+        }
+      ]}>
         Saaqi's
       </Text>
       <Image
@@ -40,12 +51,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 24,
     textAlign:'center',
-    // flex: .6,
     alignSelf: 'center'
   },
 
   navigationButton: {
-    // flex: .2,
     alignSelf: 'center'
   },
 
@@ -54,8 +63,6 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
     alignSelf: 'center',
-    // flex:  .2,
-    // marginLeft: 'auto'
   }
 
 })
