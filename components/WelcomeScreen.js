@@ -4,7 +4,7 @@ import {
   Text,
   SafeAreaView,
   useColorScheme,
-  // ImageBackground,
+  ImageBackground,
   // useWindowDimensions,
 } from 'react-native'
 // const { width, height, fontScale } = useWindowDimensions();
@@ -12,23 +12,26 @@ import {
 import SectionListEx from './rn-components/SectionList'
 
 const WelcomeScreen = () => {
-  const colorScheme = useColorScheme();
+  const isDark = useColorScheme() === 'dark';
+  const backGroundImage = isDark ? require('../assets/moroccan-flower-dark.png') : require('../assets/moroccan-flower.png')
   return (
     <SafeAreaView style={[
       styles.container,
       {
-        backgroundColor: colorScheme === 'dark' ? '#333' : 'white',
-        color: colorScheme === 'dark' ? '#fefefe' : '#333',
+        color: isDark ? '#fefefe' : '#333',
       }
     ]}>
-      {/* <ImageBackground
-          source={require('../assets/moroccan-flower.png')}
-          resizeMode='repeat'
-        > */}
+      <ImageBackground
+        source={backGroundImage}
+        resizeMode='repeat'
+        style={styles.bgImage}
+        >
       <View style={styles.innerContainer}>
         <Text style={{
           paddingBottom: 10,
-          color: colorScheme === 'dark' ? '#fefefe' : '#333',
+          color: isDark ? '#fefefe' : '#333',
+          fontSize: 18,
+          textAlign: 'center',
         }}>
           Welcome to Saaqi's! We're thrilled to have you join our culinary journey. Discover delicious dishes, place orders with ease, and stay updated on our latest offerings.
         </Text>
@@ -36,7 +39,7 @@ const WelcomeScreen = () => {
         <SectionListEx />
 
       </View>
-      {/* </ImageBackground> */}
+      </ImageBackground>
     </SafeAreaView>
   )
 }
@@ -53,5 +56,11 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     flex: 1,
   },
+
+  bgImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  }
 
 })
