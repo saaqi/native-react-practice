@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, Image, useColorScheme } from "react-native"
+import { View, Text, StyleSheet, Image, useColorScheme, Pressable } from "react-native"
 
-function Header() {
+function Header({ navigation }) {
   const isDark = useColorScheme() === 'dark';
   return (
     <View style={[
@@ -23,9 +23,21 @@ function Header() {
         accessible={true}
         accessibilityLabel={"Saaqi's Logo"}
       />
-      <Text style={styles.navigationButton}>
-        Search
-      </Text>
+      <View style={[
+        styles.navigationBar,
+        {
+          color: isDark ? '#fefefe' : '#333',
+          flexDirection: 'row',
+          gap: 20
+        }
+      ]}>
+        <Pressable onPress={() => navigation.navigate('Welcome')}>
+          <Text style={{ color: isDark ? '#fefefe' : '#333' }}>Welcome!</Text>
+        </Pressable>
+        <Pressable onPress={() => navigation.navigate('Login')}>
+          <Text style={{ color: isDark ? '#fefefe' : '#333' }}>Login</Text>
+        </Pressable>
+      </View>
     </View>
   )
 }
@@ -54,7 +66,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
 
-  navigationButton: {
+  navigationBar: {
     alignSelf: 'center'
   },
 
