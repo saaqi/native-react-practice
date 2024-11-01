@@ -1,7 +1,10 @@
-import { SafeAreaView, useColorScheme, Image } from 'react-native';
+import { SafeAreaView, useColorScheme, Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-// import { createNa  tiveStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+import Ionicons from '@expo/vector-icons/Ionicons'
+
 import WelcomeScreen from './components/WelcomeScreen'
 import LoginForm from './components/LoginForm';
 
@@ -53,14 +56,30 @@ export default function App() {
             component={WelcomeScreen}
           />
           <Stack.Screen
-            options={{ title: 'Login To You Account!' }}
+            options={{ title: 'Login To Your Account!' }}
             name="Login"
             component={LoginForm}
           />
         </Stack.Navigator> */}
-        <BottomTab.Navigator>
-          <BottomTab.Screen name="Welcome" component={WelcomeScreen} />
-          <BottomTab.Screen name="Login" component={LoginForm} />
+        <BottomTab.Navigator
+        screenOptions={
+          ({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName
+              if (route.name === "Welcome to Saaqi's") {
+                iconName = focused ? "home" : "home-outline"
+              } else {
+                iconName = focused ? "log-in" : "log-in-outline"
+              }
+              return <Ionicons name={iconName} size={size} color={color} />
+            },
+            tabBarActiveTintColor: '#333',
+            tabBarInActiveTintColor: '#666'
+          })
+         }
+        >
+          <BottomTab.Screen name="Welcome to Saaqi's" component={WelcomeScreen} />
+          <BottomTab.Screen name="Login to your Account!" component={LoginForm} />
         </BottomTab.Navigator>
       </SafeAreaView>
     </NavigationContainer>
