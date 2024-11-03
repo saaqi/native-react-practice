@@ -1,9 +1,10 @@
 import { SafeAreaView, useColorScheme, Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 // import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 
-import Ionicons from '@expo/vector-icons/Ionicons'
+// import Ionicons from '@expo/vector-icons/Ionicons'
 
 import WelcomeScreen from './components/WelcomeScreen'
 import LoginForm from './components/LoginForm';
@@ -12,7 +13,8 @@ import LoginForm from './components/LoginForm';
 export default function App() {
   const colorScheme = useColorScheme()
   // const Stack = createNativeStackNavigator()
-  const BottomTab = createBottomTabNavigator()
+  // const BottomTab = createBottomTabNavigator()
+  const DrawerNav = createDrawerNavigator()
   const isDark = colorScheme === 'dark'
   const HeaderLogo = () => {
     return (
@@ -61,7 +63,7 @@ export default function App() {
             component={LoginForm}
           />
         </Stack.Navigator> */}
-        <BottomTab.Navigator
+        {/* <BottomTab.Navigator
         screenOptions={
           ({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -80,7 +82,25 @@ export default function App() {
         >
           <BottomTab.Screen name="Welcome to Saaqi's" component={WelcomeScreen} />
           <BottomTab.Screen name="Login to your Account!" component={LoginForm} />
-        </BottomTab.Navigator>
+        </BottomTab.Navigator> */}
+        <DrawerNav.Navigator
+          userLegacyImplementation
+          initialRouteName="Welcome to Saaqi's"
+          screenOptions={{
+            drawerPosition: 'left',
+            drawerType: 'front',
+            drawerActiveTintColor : 'blue',
+            drawerInactiveTintColor: '#333',
+            // drawerStyle: {
+            //   backgroundColor: isDark ? '#333' : '#fefefe',
+            //   color: isDark ? '#fefefe' : '#333',
+            // },
+            // drawerIcon: () => <HeaderLogo />,
+          }}
+        >
+          <DrawerNav.Screen name="Welcome to Saaqi's" component={WelcomeScreen} />
+          <DrawerNav.Screen name="Login to your Account!" component={LoginForm} />
+        </DrawerNav.Navigator>
       </SafeAreaView>
     </NavigationContainer>
   );
