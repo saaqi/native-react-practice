@@ -5,14 +5,13 @@ import {
   SafeAreaView,
   useColorScheme,
   ImageBackground,
-  Pressable
   // useWindowDimensions,
 } from 'react-native'
 // const { width, height, fontScale } = useWindowDimensions();
 
 import SectionListEx from './rn-components/SectionList'
 
-const WelcomeScreen = ({ navigation }) => {
+const WelcomeScreen = () => {
   const isDark = useColorScheme() === 'dark';
   const backGroundImage = isDark ? require('../assets/moroccan-flower-dark.png') : require('../assets/moroccan-flower.png')
   return (
