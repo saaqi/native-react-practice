@@ -8,6 +8,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 
 import WelcomeScreen from './components/WelcomeScreen'
 import LoginForm from './components/LoginForm';
+import TextInputEx from './components/rn-components/TextInput'
+import SubscribeScreen from './components/SubscribeScreen'
 
 
 export default function App() {
@@ -100,6 +102,8 @@ export default function App() {
         >
           <DrawerNav.Screen name="Welcome to Saaqi's" component={WelcomeScreen} />
           <DrawerNav.Screen name="Login to your Account!" component={LoginForm} />
+          <DrawerNav.Screen name="Text Input Fields" component={TextInputEx} />
+          <DrawerNav.Screen name="Subscribe to our Newsletter" component={SubscribeScreen} />
         </DrawerNav.Navigator>
       </SafeAreaView>
     </NavigationContainer>
