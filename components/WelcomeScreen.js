@@ -5,9 +5,8 @@ import {
   SafeAreaView,
   useColorScheme,
   ImageBackground,
-  // useWindowDimensions,
+  Image
 } from 'react-native'
-// const { width, height, fontScale } = useWindowDimensions();
 
 import SectionListEx from './rn-components/SectionList'
 
@@ -27,6 +26,17 @@ const WelcomeScreen = () => {
         style={styles.bgImage}
       >
         <View style={styles.innerContainer}>
+          <Image
+            source={require('../assets/snack-icon.png')}
+            style={{
+              resizeMode: 'contain',
+              height: 150,
+              width: 150,
+              alignSelf: 'center',
+            }}
+            accessible={true}
+            accessibilityLabel={"Saaqi's Logo"}
+          />
           <Text style={{
             paddingBottom: 10,
             color: isDark ? '#fefefe' : '#333',
