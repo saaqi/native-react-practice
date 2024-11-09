@@ -4,10 +4,11 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   ScrollView,
+  View,
   Platform,
-  Button,
   SafeAreaView,
   useColorScheme,
+  Pressable
 } from 'react-native'
 
 import { useState } from 'react'
@@ -19,11 +20,6 @@ const LoginForm = () => {
   const [passWord, onchangePassWord] = useState('')
 
   const [userState, setUserState] = useState(true);
-
-  const submitButtonAction = () => {
-    setUserState(!userState);
-  }
-
   const colorScheme = useColorScheme();
 
   return (
@@ -35,12 +31,6 @@ const LoginForm = () => {
         color: colorScheme === 'dark' ? '#fefefe' : '#333',
       }
     ]}>
-      <Text style={{
-        padding: 20,
-        color: colorScheme === 'dark' ? '#fefefe' : '#333',
-      }}>
-        Welcome to Saaqi's! We're thrilled to have you join our culinary journey. Discover delicious dishes, place orders with ease, and stay updated on our latest offerings.
-      </Text>
       <KeyboardAvoidingView
         style={styles.innerContainer}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -50,43 +40,45 @@ const LoginForm = () => {
           indicatorStyle={'#333'}
           keyboardDismissMode="on-drag"
         >
-          {userState && (<ScrollView>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={onchangeUserName}
-              placeholder='User Name or E-Mail'
-              keyboardType='default'
-              value={userName}
-              clearButtonMode='always'
-            />
-            <TextInput
-              style={styles.inputField}
-              onChangeText={onchangePassWord}
-              placeholder='Passsword'
-              secureTextEntry='true'
-              keyboardType='default'
-              value={passWord}
-            />
+          {userState && (
+            <View>
+              <TextInput
+                style={styles.inputField}
+                onChangeText={onchangeUserName}
+                placeholder='User Name or E-Mail'
+                keyboardType='default'
+                value={userName}
+                clearButtonMode='always'
+              />
+              <TextInput
+                style={styles.inputField}
+                onChangeText={onchangePassWord}
+                placeholder='Passsword'
+                secureTextEntry='true'
+                keyboardType='default'
+                value={passWord}
+              />
+              <Text style={{ color: 'orange', marginVertical: 10 }}>
+                {
+                  userName === '' ? 'Please Enter your Email or Username to continue' :
+                  passWord === '' ? 'Please Enter your Password to continue' : ''
+                }
+              </Text>
+            </View>
+          )}
 
-            <Button
-              color="blue"
-              onPress={submitButtonAction}
-              title={userState ? 'Login' : 'Logout'}
-              disabled={userName === '' || passWord === ''}
-            />
-          </ScrollView>)}
-          {!userState && (<ScrollView>
-            <Text style={{ marginBottom: 20 }}>
-              You are now logged in!
-              <Text style={{ fontWeight: 'bold' }}> Welcome!</Text>
+          {!userState && (<Text style={{
+            color: colorScheme === 'dark' ? '#fefefe' : '#333',
+            marginBottom: 20
+          }}>
+            Welcome to Saaqi's! We're thrilled to have you join our culinary journey. Discover delicious dishes, place orders with ease, and stay updated on our latest offerings.
+          </Text>)}
+
+          <Pressable onPress={() => setUserState(!userState)} disabled={userName === '' || passWord === ''}>
+            <Text style={userName === '' || passWord === '' ? styles.subButtonDisabled : styles.subButton}>
+              {userState ? 'Login' : 'Logout'}
             </Text>
-            <Button
-              color="maroon"
-              onPress={submitButtonAction}
-              title={userState ? 'Login' : 'Logout'}
-            />
-            
-          </ScrollView>)}
+          </Pressable>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -114,6 +106,26 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     padding: 10,
+    marginBottom: 10,
+  },
+
+  subButton: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+
+  subButtonDisabled: {
+    backgroundColor: 'grey',
+    padding: 10,
+    borderRadius: 5,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
     marginBottom: 10,
   },
 

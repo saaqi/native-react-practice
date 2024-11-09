@@ -5,7 +5,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
-  Button,
+  Pressable,
   SafeAreaView,
   View,
   Text
@@ -13,10 +13,6 @@ import {
 
 import { useState } from 'react'
 import { ValidateEmailField } from './validators/ValidateEmailField'
-
-const submitButtonAction = () => {
-  Alert.alert('Submit button was pressed.')
-}
 
 const ContactForm = () => {
 
@@ -28,7 +24,7 @@ const ContactForm = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <Text>Contact us if you have any queries.</Text>
+        <Text style={{ marginBottom: 20 }}>Contact us if you have any queries.</Text>
         <KeyboardAvoidingView
           style={styles.textContainer}
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -71,16 +67,26 @@ const ContactForm = () => {
               value={message}
               multiline={true}
             />
-            <Button
-              onPress={submitButtonAction}
+            <Text style={{ color: 'orange', marginVertical: 10 }}>
+              {
+                userName === '' ? 'Please Enter your Full Name to continue' :
+                  !ValidateEmailField(email) ? 'Please Enter your correct Email Address to continue' :
+                    message === '' ? 'Please Enter your message to continue' :
+                ''
+              }
+            </Text>
+            <Pressable
+              onPress={() => Alert.alert('Welcome to our Newsletter.')}
               disabled={userName === '' || !ValidateEmailField(email) || message === ''}
-              color="blue"
-              title={'Contact Us!'}
-            // onPressIn={}
-            // onPressOut={}
-            // onLongPress={}
-            // delayLongPress={}
-            />
+            >
+              <Text
+                style={
+                  userName === '' || !ValidateEmailField(email) || message === ''
+                  ? styles.subButtonDisabled : styles.subButton}
+              >
+                Contact Us!
+              </Text>
+            </Pressable>
           </ScrollView>
         </KeyboardAvoidingView>
       </View>
@@ -119,5 +125,25 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     height: 100
-  }
+  },
+
+  subButton: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+
+  subButtonDisabled: {
+    backgroundColor: 'grey',
+    padding: 10,
+    borderRadius: 5,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
 })

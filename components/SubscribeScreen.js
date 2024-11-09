@@ -34,6 +34,9 @@ const SubscribeScreen = () => {
             keyboardType='email-address'
             value={email}
           />
+          <Text style={{color: 'orange', marginVertical: 10}}>
+            {ValidateEmailField(email) ? '' : 'Please Insert your correct Email Adress'}
+          </Text>
           <Pressable
             onPress={() => { Alert.alert('Thanks for subscribing, stay tuned!') }}
             disabled={!ValidateEmailField(email)}
