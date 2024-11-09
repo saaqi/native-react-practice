@@ -17,19 +17,6 @@ import { ValidateEmailField } from './validators/ValidateEmailField';
 
 const SubscribeScreen = () => {
   const [email, setEmail] = useState('')
-  const ValidEmailButton = () => {
-    if (ValidateEmailField(email)) {
-      return (
-        <Pressable onPress={() => { Alert.alert('Thanks for subscribing, stay tuned!') }}>
-          <Text style={styles.subButton}>Subscribe</Text>
-        </Pressable>
-      )
-    } else {
-      return (
-        <Text style={styles.subButtonDisabled}>Subscribe</Text>
-      )
-    }
-  }
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -47,7 +34,14 @@ const SubscribeScreen = () => {
             keyboardType='email-address'
             value={email}
           />
-          <ValidEmailButton />
+          <Pressable
+            onPress={() => { Alert.alert('Thanks for subscribing, stay tuned!') }}
+            disabled={!ValidateEmailField(email)}
+          >
+            <Text style={ValidateEmailField(email) ? styles.subButton : styles.subButtonDisabled }>
+              Subscribe
+            </Text>
+          </Pressable>
         </View>
       </KeyboardAvoidingView>
     </View>
@@ -87,7 +81,7 @@ const styles = StyleSheet.create({
     width: 300,
   },
   subButton: {
-    backgroundColor: 'darkgreen',
+    backgroundColor: 'blue',
     padding: 10,
     borderRadius: 5,
     textAlign: 'center',

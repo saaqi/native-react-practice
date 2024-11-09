@@ -72,6 +72,7 @@ const LoginForm = () => {
               color="blue"
               onPress={submitButtonAction}
               title={userState ? 'Login' : 'Logout'}
+              disabled={userName === '' || passWord === ''}
             />
           </ScrollView>)}
           {!userState && (<ScrollView>
@@ -84,6 +85,7 @@ const LoginForm = () => {
               onPress={submitButtonAction}
               title={userState ? 'Login' : 'Logout'}
             />
+            
           </ScrollView>)}
         </ScrollView>
       </KeyboardAvoidingView>
