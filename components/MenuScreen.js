@@ -14,7 +14,7 @@ const MenuScreen = () => {
     <SafeAreaView style={[
       styles.container,
       {
-        color: isDark ? '#fefefe' : '#333',
+        backgroundColor: isDark ? "#333" : "#333"
       }
     ]}>
       <View style={styles.innerContainer}>

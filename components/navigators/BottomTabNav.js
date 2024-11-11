@@ -2,7 +2,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-import WelcomeScreen from '../WelcomeScreen'
 import MenuScreen from '../MenuScreen'
 import LoginForm from '../LoginForm';
 import ContactForm from '../ContactForm'
@@ -29,14 +28,12 @@ const BottomTabNav = () => {
   const BottomTab = createBottomTabNavigator()
   return (
     <BottomTab.Navigator
+      initialRouteName="Login"
       screenOptions={
         ({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName
-            if (route.name === "Welcome") {
-              iconName = focused ? "home" : "home-outline"
-            }
-            else if (route.name === "Menu") {
+            if (route.name === "Menu") {
               iconName = focused ? "grid" : "grid-outline"
             }
             else if (route.name === "Login") {
@@ -58,19 +55,14 @@ const BottomTabNav = () => {
       }
     >
       <BottomTab.Screen
-        name="Welcome"
-        options={{ title: "Welcome to Saaqi's" }}
-        component={WelcomeScreen}
+        name="Login"
+        options={{ title: "Login to your Account!" }}
+        component={LoginForm}
       />
       <BottomTab.Screen
         name="Menu"
         options={{ title: "Please read through our menu" }}
         component={MenuScreen}
-      />
-      <BottomTab.Screen
-        name="Login"
-        options={{ title: "Login to your Account!" }}
-        component={LoginForm}
       />
       <BottomTab.Screen
         name="Contact"

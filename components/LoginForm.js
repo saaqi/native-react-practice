@@ -24,20 +24,14 @@ const LoginForm = () => {
 
   return (
 
-    <SafeAreaView style={[
-      styles.container,
-      {
-        backgroundColor: colorScheme === 'dark' ? '#333' : 'white',
-        color: colorScheme === 'dark' ? '#fefefe' : '#333',
-      }
-    ]}>
+    <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
         style={styles.innerContainer}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         <ScrollView
           horizontal={false}
-          indicatorStyle={'#333'}
+          // indicatorStyle={'#333'}
           keyboardDismissMode="on-drag"
         >
           {userState && (

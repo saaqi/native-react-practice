@@ -1,9 +1,7 @@
 import { useColorScheme } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import WelcomeScreen from '../WelcomeScreen'
-import LoginForm from '../LoginForm';
-import ContactForm from '../ContactForm'
-import SubscribeScreen from '../SubscribeScreen'
+import BottomTabNav from './BottomTabNav'
 
 const StackNav = () => {
 
@@ -13,19 +11,17 @@ const StackNav = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName="Welcome to Saaqi's"
+      initialRouteName="Welcome"
       screenOptions={{
-        // headerShown: false,
+        headerShown: false,
         headerStyle: { backgroundColor: isDark ? '#333' : '#fefefe' },
         headerTintColor: isDark ? '#fefefe' : '#333',
         headerTitleAlign: 'center',
         headerTitleStyle: { fontWeight: 'bold' }
       }}
     >
-      <Stack.Screen name="Welcome to Saaqi's" component={WelcomeScreen} />
-      <Stack.Screen options={{ title: 'Login To Your Account now or else!' }} name="Login to your Account!" component={LoginForm} />
-      <Stack.Screen name="Contact Form" component={ContactForm} />
-      <Stack.Screen name="Subscribe to our Newsletter" component={SubscribeScreen} />
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen options={{ title: 'Main Application' }} name="BottomTabNav" component={BottomTabNav} />
     </Stack.Navigator>
   )
 }

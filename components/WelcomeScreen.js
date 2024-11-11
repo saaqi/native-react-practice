@@ -5,12 +5,12 @@ import {
   SafeAreaView,
   useColorScheme,
   ImageBackground,
-  Image
+  Image,
+  Pressable
 } from 'react-native'
 
-import SectionListEx from './rn-components/SectionList'
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   const isDark = useColorScheme() === 'dark';
   const backGroundImage = isDark ? require('../assets/moroccan-flower-dark.png') : require('../assets/moroccan-flower.png')
   return (
@@ -45,7 +45,11 @@ const WelcomeScreen = () => {
           }}>
             Welcome to Saaqi's! We're thrilled to have you join our culinary journey. Discover delicious dishes, place orders with ease, and stay updated on our latest offerings.
           </Text>
-          <SectionListEx />
+          <Pressable onPress={() => navigation.push('BottomTabNav')}>
+            <Text style={styles.subButton}>
+              Subscribe
+            </Text>
+          </Pressable>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -68,6 +72,14 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-  }
-
+  },
+  subButton: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
 })
