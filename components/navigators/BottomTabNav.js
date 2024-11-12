@@ -1,43 +1,39 @@
-// import { Image } from 'react-native'
+import { Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import MenuScreen from '../MenuScreen'
-import LoginForm from '../LoginForm';
 import ContactForm from '../ContactForm'
 import SubscribeScreen from '../SubscribeScreen'
 
 const BottomTabNav = () => {
 
-  // const HeaderLogo = () => {
-  //   return (
-  //     <Image
-  //       source={require('../../assets/snack-icon.png')}
-  //       style={{
-  //         resizeMode: 'contain',
-  //         height: 30,
-  //         width: 30,
-  //         alignSelf: 'center',
-  //       }}
-  //       accessible={true}
-  //       accessibilityLabel={"Saaqi's Logo"}
-  //     />
-  //   )
-  // }
+  const HeaderLogo = () => {
+    return (
+      <Image
+        source={require('../../assets/snack-icon.png')}
+        style={{
+          resizeMode: 'contain',
+          height: 30,
+          width: 30,
+          alignSelf: 'center',
+        }}
+        accessible={true}
+        accessibilityLabel={"Saaqi's Logo"}
+      />
+    )
+  }
 
   const BottomTab = createBottomTabNavigator()
   return (
     <BottomTab.Navigator
-      initialRouteName="Login"
+      initialRouteName="Menu"
       screenOptions={
         ({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName
             if (route.name === "Menu") {
               iconName = focused ? "grid" : "grid-outline"
-            }
-            else if (route.name === "Login") {
-              iconName = focused ? "log-in" : "log-in-outline"
             }
             else if (route.name === "Contact") {
               iconName = focused ? "chatbubbles" : "chatbubbles-outline"
@@ -50,15 +46,10 @@ const BottomTabNav = () => {
           tabBarActiveTintColor: 'blue',
           tabBarInActiveTintColor: '#666',
           headerTitleAlign: 'center',
-          // headerTitle: () => <HeaderLogo />,
+          headerTitle: () => <HeaderLogo />,
         })
       }
     >
-      <BottomTab.Screen
-        name="Login"
-        options={{ title: "Login to your Account!" }}
-        component={LoginForm}
-      />
       <BottomTab.Screen
         name="Menu"
         options={{ title: "Please read through our menu" }}
