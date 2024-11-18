@@ -20,7 +20,11 @@ const SubscribeScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image source={require('../assets/snack-icon.png')} style={styles.logo} />
+        <Image
+          source={require('../assets/snack-icon.png')}
+          style={styles.logo}
+          resizeMode={'contain'}
+        />
       </View>
       <KeyboardAvoidingView KeyboardAvoidingView style={{ width: '100%' }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <View style={{ alignItems: 'center' }}>
@@ -68,7 +72,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 1000,
     height: 1170,
-    resizeMode: 'contain',
   },
   welcomeText: {
     fontSize: 18,

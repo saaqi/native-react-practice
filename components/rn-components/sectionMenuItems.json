@@ -1,0 +1,129 @@
+{
+  "menu": [
+    {
+      "title": "Appetizers",
+      "data": [
+        {
+          "name": "Hummus",
+          "price": "$5.00",
+          "id": "appetizer-0"
+        },
+        {
+          "name": "Moutabal",
+          "price": "$5.00",
+          "id": "appetizer-1"
+        },
+        {
+          "name": "Falafel",
+          "price": "$7.50",
+          "id": "appetizer-2"
+        },
+        {
+          "name": "Marinated Olives",
+          "price": "$5.00",
+          "id": "appetizer-3"
+        },
+        {
+          "name": "Kofta",
+          "price": "$5.00",
+          "id": "appetizer-4"
+        },
+        {
+          "name": "Eggplant Salad",
+          "price": "$8.50",
+          "id": "appetizer-5"
+        }
+      ]
+    },
+    {
+      "title": "Main Dishes",
+      "data": [
+        {
+          "name": "Lentil Burger",
+          "price": "$10.00",
+          "id": "main-dished-0"
+        },
+        {
+          "name": "Smoked Salmon",
+          "price": "$14.00",
+          "id": "main-dished-1"
+        },
+        {
+          "name": "Kofta Burger",
+          "price": "$11.00",
+          "id": "main-dished-2"
+        },
+        {
+          "name": "Turkish Kebab",
+          "price": "$15.50",
+          "id": "main-dished-3"
+        }
+      ]
+    },
+    {
+      "title": "Sides",
+      "data": [
+        {
+          "name": "Fries",
+          "price": "$3.00",
+          "id": "sides-0"
+        },
+        {
+          "name": "Buttered Rice",
+          "price": "$3.00",
+          "id": "sides-1"
+        },
+        {
+          "name": "Bread Sticks",
+          "price": "$3.00",
+          "id": "sides-2"
+        },
+        {
+          "name": "Pita Pocket",
+          "price": "$3.00",
+          "id": "sides-3"
+        },
+        {
+          "name": "Lentil Soup",
+          "price": "$3.75",
+          "id": "sides-4"
+        },
+        {
+          "name": "Greek Salad",
+          "price": "$6.00",
+          "id": "sides-5"
+        },
+        {
+          "name": "Rice Pilaf",
+          "price": "$4.00",
+          "id": "sides-6"
+        }
+      ]
+    },
+    {
+      "title": "Desserts",
+      "data": [
+        {
+          "name": "Baklava",
+          "price": "$3.00",
+          "id": "desserts-0"
+        },
+        {
+          "name": "Tartufo",
+          "price": "$3.00",
+          "id": "desserts-1"
+        },
+        {
+          "name": "Tiramisu",
+          "price": "$5.00",
+          "id": "desserts-2"
+        },
+        {
+          "name": "Panna Cotta",
+          "price": "$5.00",
+          "id": "desserts-3"
+        }
+      ]
+    }
+  ]
+}

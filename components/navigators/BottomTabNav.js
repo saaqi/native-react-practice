@@ -13,11 +13,11 @@ const BottomTabNav = () => {
       <Image
         source={require('../../assets/snack-icon.png')}
         style={{
-          resizeMode: 'contain',
           height: 30,
           width: 30,
           alignSelf: 'center',
         }}
+        resizeMode={'contain'}
         accessible={true}
         accessibilityLabel={"Saaqi's Logo"}
       />

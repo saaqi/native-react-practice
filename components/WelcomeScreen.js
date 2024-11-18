@@ -11,7 +11,7 @@ import {
   Pressable,
   ImageBackground,
   Image,
-  useWindowDimensions
+  // useWindowDimensions
 } from 'react-native'
 
 import { useState } from 'react'
@@ -20,7 +20,7 @@ const WelcomeScreen = ({ navigation }) => {
   const isDark = useColorScheme() === 'dark';
   const [userName, onchangeUserName] = useState('')
   const [passWord, onchangePassWord] = useState('')
-  const { width, height } = useWindowDimensions()
+  // const { width, height } = useWindowDimensions()
   const backGroundImage = isDark ? require('../assets/dark_leather.png') : require('../assets/white_leather.png')
   return (
     <SafeAreaView style={[
@@ -36,13 +36,14 @@ const WelcomeScreen = ({ navigation }) => {
       >
         <View style={styles.innerContainer}>
           <Image
-            source={require('../assets/snack-icon.png')}
+            // source={require('../assets/snack-icon.png')}
+            source={{ uri: '../assets/snack-icon.png' }}
             style={{
-              resizeMode: 'contain',
               height: 150,
               width: 150,
               alignSelf: 'center',
             }}
+            resizeMode={'contain'}
             accessible={true}
             accessibilityLabel={"Saaqi's Logo"}
           />
