@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   Text,
   TextInput,
@@ -13,8 +14,9 @@ import {
   Image,
   // useWindowDimensions
 } from 'react-native'
-
 import { useState } from 'react'
+
+import AssetExample from "./AssetExample"
 
 const WelcomeScreen = ({ navigation }) => {
   const isDark = useColorScheme() === 'dark';
@@ -35,7 +37,7 @@ const WelcomeScreen = ({ navigation }) => {
         style={styles.bgImage}
       >
         <View style={styles.innerContainer}>
-          <Image
+          {/* <Image
             // source={require('../assets/snack-icon.png')}
             source={{ uri: '../assets/snack-icon.png' }}
             style={{
@@ -46,7 +48,8 @@ const WelcomeScreen = ({ navigation }) => {
             resizeMode={'contain'}
             accessible={true}
             accessibilityLabel={"Saaqi's Logo"}
-          />
+          /> */}
+          <AssetExample />
           <Text style={{
             paddingVertical: 20,
             color: isDark ? '#fefefe' : '#333',
