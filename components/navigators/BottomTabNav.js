@@ -5,6 +5,7 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import MenuScreen from '../MenuScreen'
 import ContactForm from '../ContactForm'
 import SubscribeScreen from '../SubscribeScreen'
+import SetupAsyncStorage from '../SetupAsyncStorage'
 
 const BottomTabNav = () => {
 
@@ -41,6 +42,9 @@ const BottomTabNav = () => {
             else if (route.name === "Subscribe") {
               iconName = focused ? "mail" : "mail-outline"
             }
+            else if (route.name === "Async Storage") {
+              iconName = focused ? "hammer" : "hammer-outline"
+            }
             return <Ionicons name={iconName} size={size} color={color} />
           },
           tabBarActiveTintColor: 'blue',
@@ -64,6 +68,11 @@ const BottomTabNav = () => {
         name="Subscribe"
         options={{ title: "Subscribe to our Newsletter" }}
         component={SubscribeScreen}
+      />
+      <BottomTab.Screen
+        name="Async Storage"
+        options={{ title: "Async Storage" }}
+        component={SetupAsyncStorage}
       />
     </BottomTab.Navigator>
   )

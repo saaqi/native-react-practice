@@ -1,12 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Text, View, StyleSheet, Alert } from 'react-native';
 import Constants from 'expo-constants';
 import { Switch } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import useUpdate from './useUpdate';
+// import useUpdate from './useUpdate';
+/**
+ * A custom useEffect hook that only triggers on updates, not on initial mount
+ * @param {Function} effect
+ * @param {Array<any>} dependencies
+ */
+function useUpdate(effect, dependencies = []) {
+  const isInitialMount = useRef(true);
 
-export default function App() {
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      return effect();
+    }
+  }, dependencies);
+}
+
+export default function SetupAsyncStorage() {
   const [preferences, setPreferences] = useState({
     pushNotifications: false,
     emailMarketing: false,

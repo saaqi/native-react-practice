@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   Text,
   TextInput,
@@ -15,8 +14,6 @@ import {
   // useWindowDimensions
 } from 'react-native'
 import { useState } from 'react'
-
-import AssetExample from "./AssetExample"
 
 const WelcomeScreen = ({ navigation }) => {
   const isDark = useColorScheme() === 'dark';
@@ -37,7 +34,7 @@ const WelcomeScreen = ({ navigation }) => {
         style={styles.bgImage}
       >
         <View style={styles.innerContainer}>
-          {/* <Image
+          <Image
             // source={require('../assets/snack-icon.png')}
             source={{ uri: '../assets/snack-icon.png' }}
             style={{
@@ -48,8 +45,7 @@ const WelcomeScreen = ({ navigation }) => {
             resizeMode={'contain'}
             accessible={true}
             accessibilityLabel={"Saaqi's Logo"}
-          /> */}
-          <AssetExample />
+          />
           <Text style={{
             paddingVertical: 20,
             color: isDark ? '#fefefe' : '#333',
@@ -80,7 +76,8 @@ const WelcomeScreen = ({ navigation }) => {
               />
               <TextInput
                 style={[styles.inputField, {
-                  color: isDark ? '#fefefe' : '#333'
+                  color: isDark ? '#fefefe' : '#333',
+                  // borderColor: isDark ? '#fefefe' : '#333',
                 }]}
                 onChangeText={onchangePassWord}
                 placeholder='Passsword'
@@ -130,8 +127,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   innerContainer: {
-    paddingHorizontal: 20,
-    paddingTop: 20,
+    padding: 20,
     flex: 1,
   },
 

@@ -3,25 +3,17 @@ import {
   View,
   Text,
   SafeAreaView,
-  useColorScheme,
 } from 'react-native'
 
 import SectionListEx from './rn-components/SectionList'
 
 const MenuScreen = () => {
-  const isDark = useColorScheme() === 'dark';
   return (
-    <SafeAreaView style={[
-      styles.container,
-      {
-        backgroundColor: isDark ? "#333" : "#fefefe"
-      }
-    ]}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
 
         <Text style={{
           paddingBottom: 10,
-          color: isDark ? '#fefefe' : '#333',
           fontSize: 18,
           textAlign: 'center',
         }}>
