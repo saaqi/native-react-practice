@@ -56,22 +56,22 @@ const BottomTabNav = () => {
     >
       <BottomTab.Screen
         name="Menu"
-        options={{ title: "Please read through our menu" }}
+        options={{ title: "Menu" }}
         component={MenuScreen}
       />
       <BottomTab.Screen
         name="Contact"
-        options={{ title: "Contact Form" }}
+        options={{ title: "Contact" }}
         component={ContactForm}
       />
       <BottomTab.Screen
         name="Subscribe"
-        options={{ title: "Subscribe to our Newsletter" }}
+        options={{ title: "Newsletter" }}
         component={SubscribeScreen}
       />
       <BottomTab.Screen
         name="Async Storage"
-        options={{ title: "Async Storage" }}
+        options={{ title: "Preferences" }}
         component={SetupAsyncStorage}
       />
     </BottomTab.Navigator>

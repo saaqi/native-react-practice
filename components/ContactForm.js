@@ -7,7 +7,6 @@ import {
   Alert,
   Pressable,
   SafeAreaView,
-  View,
   Text
 } from 'react-native'
 
@@ -22,8 +21,8 @@ const ContactForm = () => {
   const [email, onchangeEmail] = useState('')
 
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.innerContainer}>
         <Text style={{ marginBottom: 20 }}>Contact us if you have any queries.</Text>
         <KeyboardAvoidingView
           style={styles.textContainer}
@@ -40,8 +39,8 @@ const ContactForm = () => {
               placeholder='Full Name *'
               keyboardType='default'
               value={userName}
-              onFocus={() => { Alert.alert('First Input Field is in focus.') }}
-              onBlur={() => { Alert.alert('First Input Field is blurred.') }}
+              // onFocus={() => { Alert.alert('First Input Field is in focus.') }}
+              // onBlur={() => { Alert.alert('First Input Field is blurred.') }}
               clearButtonMode='always'
             />
             <TextInput
@@ -89,7 +88,7 @@ const ContactForm = () => {
             </Pressable>
           </ScrollView>
         </KeyboardAvoidingView>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }
@@ -99,10 +98,17 @@ export default ContactForm
 
 //Style Sheet
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     padding: 20,
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  innerContainer: {
+    padding: 20,
+    flex: 1,
   },
 
   textContainer: {

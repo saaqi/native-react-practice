@@ -20,12 +20,13 @@ const WelcomeScreen = ({ navigation }) => {
   const [userName, onchangeUserName] = useState('')
   const [passWord, onchangePassWord] = useState('')
   // const { width, height } = useWindowDimensions()
+  const textColor = isDark ? '#fefefe' : '#333'
   const backGroundImage = isDark ? require('../assets/dark_leather.png') : require('../assets/white_leather.png')
   return (
     <SafeAreaView style={[
       styles.container,
       {
-        color: isDark ? '#fefefe' : '#333',
+        color: textColor,
       }
     ]}>
       <ImageBackground
@@ -35,8 +36,7 @@ const WelcomeScreen = ({ navigation }) => {
       >
         <View style={styles.innerContainer}>
           <Image
-            // source={require('../assets/snack-icon.png')}
-            source={{ uri: '../assets/snack-icon.png' }}
+            source={require('../assets/snack-icon.png')}
             style={{
               height: 150,
               width: 150,
@@ -48,7 +48,7 @@ const WelcomeScreen = ({ navigation }) => {
           />
           <Text style={{
             paddingVertical: 20,
-            color: isDark ? '#fefefe' : '#333',
+            color: textColor,
             fontSize: 18,
             textAlign: 'center',
           }}>
@@ -66,7 +66,7 @@ const WelcomeScreen = ({ navigation }) => {
             >
               <TextInput
                 style={[styles.inputField, {
-                  color: isDark ? '#fefefe' : '#333'
+                  color: textColor,
                 }]}
                 onChangeText={onchangeUserName}
                 placeholder='User Name or E-Mail'
@@ -76,12 +76,12 @@ const WelcomeScreen = ({ navigation }) => {
               />
               <TextInput
                 style={[styles.inputField, {
-                  color: isDark ? '#fefefe' : '#333',
-                  // borderColor: isDark ? '#fefefe' : '#333',
+                  color: textColor,
+                  borderColor: textColor,
                 }]}
                 onChangeText={onchangePassWord}
                 placeholder='Passsword'
-                secureTextEntry='true'
+                secureTextEntry={true}
                 keyboardType='default'
                 value={passWord}
               />
@@ -125,6 +125,8 @@ export default WelcomeScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   innerContainer: {
     padding: 20,
