@@ -6,6 +6,7 @@ import MenuScreen from '../MenuScreen'
 import ContactForm from '../ContactForm'
 import SubscribeScreen from '../SubscribeScreen'
 import SetupAsyncStorage from '../SetupAsyncStorage'
+import SetupSQLite from '../SetupSQLite'
 
 const BottomTabNav = () => {
 
@@ -45,6 +46,9 @@ const BottomTabNav = () => {
             else if (route.name === "Async Storage") {
               iconName = focused ? "hammer" : "hammer-outline"
             }
+            else if (route.name === "Menu SQLite") {
+              iconName = focused ? "menu" : "menu-outline"
+            }
             return <Ionicons name={iconName} size={size} color={color} />
           },
           tabBarActiveTintColor: 'blue',
@@ -73,6 +77,11 @@ const BottomTabNav = () => {
         name="Async Storage"
         options={{ title: "Preferences" }}
         component={SetupAsyncStorage}
+      />
+      <BottomTab.Screen
+        name="Menu SQLite"
+        options={{ title: "Menu Live" }}
+        component={SetupSQLite}
       />
     </BottomTab.Navigator>
   )

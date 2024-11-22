@@ -34,7 +34,7 @@ const WelcomeScreen = ({ navigation }) => {
         resizeMode='repeat'
         style={styles.bgImage}
       >
-        <View style={styles.innerContainer}>
+        <ScrollView style={styles.innerContainer}>
           <Image
             source={require('../assets/snack-icon.png')}
             style={{
@@ -91,7 +91,7 @@ const WelcomeScreen = ({ navigation }) => {
                     passWord === '' ? 'Please Enter your Password to continue' : ''
                 }
               </Text>
-              <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <Pressable
                   onPress={() => navigation.push('BottomTabNav')}
                   disabled={userName === '' || passWord === ''}
@@ -104,7 +104,7 @@ const WelcomeScreen = ({ navigation }) => {
                 <Pressable
                   onPress={() => navigation.push('BottomTabNav')}
                   disabled={userName === '' || passWord === ''}
-                  style={{flex: 0.49}}
+                  style={{ flex: 0.49 }}
                 >
                   <Text style={userName === '' || passWord === '' ? styles.subButtonDisabled : styles.subButton}>
                     Sign Up
@@ -113,7 +113,7 @@ const WelcomeScreen = ({ navigation }) => {
               </View>
             </ScrollView>
           </KeyboardAvoidingView>
-        </View>
+        </ScrollView>
       </ImageBackground>
     </SafeAreaView>
   )
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     padding: 20,
+    paddingTop: 10,
     flex: 1,
   },
 
